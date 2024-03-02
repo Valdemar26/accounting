@@ -10,8 +10,20 @@ font-family: "Nunito", Sans-serif;
   }
 }
 
-.nav-item.active {
-  background-color: #5a626c;
+.nav-item {
+  transition: background-color 0.3s ease-in-out;
+  a {
+    color: #292929;
+  }
+  &:hover {
+    background-color: darken(#f8f9fa, 10%);
+  }
+  &.active {
+    background-color: #5a626c;
+    &:hover {
+      background-color: darken(#5a626c, 10%);
+    }
+  }
 }
 
 .nav-item.active .nav-link {
