@@ -1,5 +1,19 @@
+/*
+TODO create list with color variables
+for example: #5a626c - mainBackground, #292929 - mainText
+font-family: "Nunito", Sans-serif;
+ */
+
 .navbar-brand {
   img {
     width: 30px;
   }
+}
+
+.nav-item.active {
+  background-color: #5a626c;
+}
+
+.nav-item.active .nav-link {
+  color: #ffffff;
 }
