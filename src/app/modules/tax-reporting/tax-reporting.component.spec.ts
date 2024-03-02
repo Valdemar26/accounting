@@ -10,8 +10,8 @@ describe('TaxReportingComponent', () => {
     await TestBed.configureTestingModule({
       imports: [TaxReportingComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(TaxReportingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

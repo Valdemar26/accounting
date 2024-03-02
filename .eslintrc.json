@@ -1,0 +1,136 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*",
+    "server/**"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "plugins": [
+        "unused-imports"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+//        "no-console": "warn",
+//        "@typescript-eslint/explicit-member-accessibility": [
+//          "warn",
+//          {
+//            "accessibility": "explicit",
+//            "overrides": {
+//              "constructors": "no-public"
+//            }
+//          }
+//        ],
+//        "@typescript-eslint/member-ordering": "warn",
+        "unused-imports/no-unused-imports": "warn",
+        "unused-imports/no-unused-vars": [
+          "warn",
+          {
+            "vars": "all",
+            "varsIgnorePattern": "^_",
+            "args": "after-used",
+            "argsIgnorePattern": "^_"
+          }
+        ],
+        "object-curly-spacing": [
+          "warn",
+          "always"
+        ],
+        "arrow-parens": [
+          "warn",
+          "as-needed"
+        ],
+        "indent": [
+          "warn",
+          2
+        ],
+        "quotes": [
+          "warn",
+          "single"
+        ],
+//        "@typescript-eslint/type-annotation-spacing": [
+//          "warn",
+//          {
+//            "before": true,
+//            "after": true,
+//            "overrides": {
+//              "colon": {
+//                "before": false,
+//                "after": true
+//              }
+//            }
+//          }
+//        ],
+        "key-spacing": [
+          "warn",
+          {
+            "mode": "strict"
+          }
+        ],
+        "keyword-spacing": [
+          "warn",
+          {
+            "after": true,
+            "before": true
+          }
+        ],
+        "arrow-spacing": [
+          "warn",
+          {
+            "after": true,
+            "before": true
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    },
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "plugin:@ngrx/recommended"
+      ],
+      "rules": {
+        "@ngrx/prefer-effect-callback-in-block-statement": "off",
+        "@ngrx/avoid-dispatching-multiple-actions-sequentially": "off"
+      }
+    }
+  ]
+}

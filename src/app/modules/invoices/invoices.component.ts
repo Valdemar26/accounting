@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import moment from 'moment';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-invoices',
@@ -8,10 +7,6 @@ import moment from 'moment';
   templateUrl: './invoices.component.html',
   styleUrl: './invoices.component.scss'
 })
-export class InvoicesComponent implements OnInit {
-  ngOnInit(): void {
-    const currentDate = moment().format("DD-MM-YYYY");
-    console.log(currentDate);
-  }
+export class InvoicesComponent {
 
 }
