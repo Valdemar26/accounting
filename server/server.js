@@ -8,7 +8,7 @@ server.use(jsonServer.bodyParser);
 const accountsData = require('../server/data/json/getAccounting.json');
 
 
-server.get('/api/accounts', (req, res, next) => {
+server.get('/api/accounting', (req, res, next) => {
   res.status(200).send(accountsData.data);
 });
 
