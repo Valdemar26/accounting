@@ -18,6 +18,6 @@ export class QuarterSliderComponent implements OnInit {
   }
 
   public getQuarters(): void {
-    this.accountingService.getQuarters().subscribe(data => console.log(data))
+    this.accountingService.getQuarters().subscribe(data => console.log(data));
   }
 }
