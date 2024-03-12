@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   appVersion: 'v0.0.1',
-  mainHost: 'localhost:3000',
+  mainHost: 'http://localhost:3000',
 };
 
 /*
