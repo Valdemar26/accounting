@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { AccountingModule } from '../../accounting.module';
+import ASN1 from '@lapo/asn1js';
+import Hex from '@lapo/asn1js/hex';
+import Int10 from '@lapo/asn1js/int10';
 
 @Component({
   selector: 'app-transactions-list',
@@ -25,7 +28,10 @@ export class TransactionsListComponent {
    */
   fileBrowseHandler(event: any) {
     const files = event.target.files;
-    console.log('files: ', files);
+    console.log('files: ', files, ASN1);
+
+    // const result: ASN1 = ASN1.decode(files[0]);
+
     this.prepareFilesList(files);
   }
 
