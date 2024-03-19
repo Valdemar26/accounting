@@ -12,4 +12,18 @@ export class AccountingService {
   getQuarters(): Observable<any> {
     return this.http.get(`${environment.mainHost}/api/quarters`);
   }
+
+  setQuarters(): Observable<any> {
+    return this.http.post(`${environment.mainHost}/api/quarters`,
+      {
+        "quarter": "2",
+        "period": "",
+        "total": "3500"
+      }
+      );
+  }
+
+  deleteQuarters(): Observable<any> {
+    return this.http.delete(`${environment.mainHost}/api/quarters`);
+  }
 }
