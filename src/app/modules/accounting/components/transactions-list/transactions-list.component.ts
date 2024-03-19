@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AccountingService } from '../../services/accounting.service';
+import { BehaviorSubject } from 'rxjs';
 // import { AccountingModule } from '../../accounting.module';
 // import ASN1 from '@lapo/asn1js';
 // import Hex from '@lapo/asn1js/hex';
@@ -11,18 +12,39 @@ import { AccountingService } from '../../services/accounting.service';
   templateUrl: './transactions-list.component.html',
   styleUrl: './transactions-list.component.scss'
 })
-export class TransactionsListComponent {
+export class TransactionsListComponent implements OnInit {
   files: any[] = [];
   decoder = new TextDecoder();
   reader = new FileReader();
+  quartersList$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
 
   constructor(
     private readonly accountingService: AccountingService
   ) {
   }
 
+  ngOnInit(): void {
+    this.getQuarters();
+  }
+
+  public getQuarters(): void {
+    this.accountingService.getQuarters().subscribe(
+      (data: any[]) => {
+        console.log('getQuarters data: ', data);
+        this.quartersList$.next(data); // Update the BehaviorSubject with new data
+      },
+      error => {
+        console.error('Error fetching quarters: ', error);
+        // Handle error appropriately
+      }
+    );
+  }
+
   addPayment(): void {
-    this.accountingService.setQuarters().subscribe(payment => console.log('addPayment: ', payment));
+    this.accountingService.setQuarters().subscribe(payment => {
+      console.log('addPayment: ', payment);
+      this.getQuarters();
+    });
   }
 
   deletePayment(): void {
