@@ -1,6 +1,6 @@
 .container {
-  width: 450px;
-  height: 200px;
+  width: 80vw;
+  //height: 200px;
   padding: 2rem;
   text-align: center;
   border: dashed 1px #979797;
@@ -58,8 +58,6 @@
       cursor: pointer;
       align-self: flex-end;
     }
-
-    display: flex;
     flex-grow: 1;
 
     .name {
