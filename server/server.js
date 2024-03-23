@@ -35,6 +35,34 @@ server.post('/api/quarters', (req, res, next) => {
   res.status(201).send(newQuarters);
 });
 
+server.patch('/api/quarters/:id', (req, res, next) => {
+  const id = req.params.id;
+  const updatedQuarters = req.body;
+
+  const index = accountsData.data.quarters.findIndex(quarters => quarters.id === id);
+  if (index !== -1) {
+    accountsData.data.quarters[index] = updatedQuarters;
+    fs.writeFileSync(filePath, JSON.stringify(accountsData));
+    res.status(200).send(updatedQuarters);
+  } else {
+    res.status(404).send('Quarters not found');
+  }
+});
+
+server.delete('/api/quarters/:id', (req, res, next) => {
+  const id = req.params.id;
+
+  const index = accountsData.data.quarters.findIndex(quarters => quarters.id === id);
+
+  if (index !== -1) {
+    accountsData.data.quarters.splice(index, 1);
+    fs.writeFileSync(filePath, JSON.stringify(accountsData));
+    res.status(204).send();
+  } else {
+    res.status(404).send('Quarters not found');
+  }
+});
+
 server.listen(3000, () => {
   console.log('JSON server listening on port 3000');
 });

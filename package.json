@@ -40,6 +40,7 @@
     "@ngrx/eslint-plugin": "^17.1.1",
     "@types/jasmine": "~5.1.0",
     "@types/lapo__asn1js": "^1.2.5",
+    "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
     "eslint": "^8.57.0",
