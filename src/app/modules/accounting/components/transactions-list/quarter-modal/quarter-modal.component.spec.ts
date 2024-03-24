@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProgressComponent } from './progress.component';
+import { QuarterModalComponent } from './quarter-modal.component';
 
-describe('ProgressComponent', () => {
-  let component: ProgressComponent;
-  let fixture: ComponentFixture<ProgressComponent>;
+describe('QuarterModalComponent', () => {
+  let component: QuarterModalComponent;
+  let fixture: ComponentFixture<QuarterModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProgressComponent]
+      imports: [QuarterModalComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ProgressComponent);
+    fixture = TestBed.createComponent(QuarterModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

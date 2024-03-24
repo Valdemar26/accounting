@@ -1,0 +1,39 @@
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{ 'display': mode === 'add' || mode === 'edit' ? 'block' : 'none' }">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" [ngClass]="{ 'open': mode === 'add' || mode === 'edit' }">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ mode === 'edit' ? 'Edit Quarter' : 'Add Quarter' }}</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="quarterForm">
+          <!-- Form fields -->
+          <div class="d-flex flex-column mb-3">
+            <label for="quarter">Quarter</label>
+            <input class="form-control" type="text" formControlName="quarter" id="quarter">
+          </div>
+
+          <div class="d-flex flex-column mb-3">
+            <label for="quarter">Period</label>
+            <input class="form-control" type="text" formControlName="period" id="period">
+          </div>
+
+          <div class="d-flex flex-column mb-3">
+            <label for="quarter">Total</label>
+            <input class="form-control" type="number" formControlName="total" id="total">
+          </div>
+
+          <div class="d-flex flex-column mb-3">
+            <label for="quarter">Tax</label>
+            <input class="form-control" type="number" formControlName="tax" id="tax">
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button (click)="closeModal()" type="button" class="btn btn-secondary">Close</button>
+        <button (click)="submitForm()" type="button" class="btn btn-primary" [disabled]="!quarterForm.valid">{{ mode === 'edit' ? 'Save Changes' : 'Add' }}</button>
+      </div>
+    </div>
+  </div>
+</div>

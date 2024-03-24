@@ -5,25 +5,23 @@ import { AccountingRoutingModule } from './accounting-routing.module';
 import { QuarterSliderComponent } from './components/quarter-slider/quarter-slider.component';
 import { AccountingComponent } from './accounting.component';
 import { TransactionsListComponent } from './components/transactions-list/transactions-list.component';
-import { ProgressComponent } from './components/transactions-list/progress/progress.component';
-import { DndDirective } from './directives/dnd.directive';
+import { QuarterModalComponent } from './components/transactions-list/quarter-modal/quarter-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AccountingComponent,
     QuarterSliderComponent,
-    ProgressComponent,
-    DndDirective,
     TransactionsListComponent,
+    QuarterModalComponent
   ],
   exports: [
-    ProgressComponent,
-    DndDirective
   ],
   imports: [
     CommonModule,
     AccountingRoutingModule,
+    ReactiveFormsModule,
 
   ]
 })
