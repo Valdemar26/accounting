@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
-import { IQuarter } from '../components/transactions-list/transactions-list.component';
+import { IQuarter } from '../../../shared/interfaces/shared.interface';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,8 +19,8 @@ export class AccountingService {
     return this.http.post(`${environment.mainHost}/api/quarters`, quarter)
   }
 
-  updateQuarters(index: number, quarter: any): Observable<any>{
-    return this.http.patch(`${environment.mainHost}/api/quarters/${index}`, quarter)
+  updateQuarters(quarter: IQuarter): Observable<any>{
+    return this.http.patch(`${environment.mainHost}/api/quarters/${quarter.id}`, quarter)
   }
 
   deleteQuarters(index: string): Observable<any> {

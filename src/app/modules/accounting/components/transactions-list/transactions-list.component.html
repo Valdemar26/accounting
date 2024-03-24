@@ -21,8 +21,8 @@
         <td>{{ quarter.total }}</td>
         <td> - </td>
         <td class="d-flex justify-content-between">
-          <button class="btn btn-sm btn-warning" (click)="editQuarter(quarter.id, quarter)">Edit Quarter</button>
-          <button class="btn btn-sm btn-danger" (click)="deleteQuarter(quarter.id)">Delete Quarter</button>
+          <button class="btn btn-sm btn-warning" (click)="openEditModal(quarter)">Edit Quarter</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteQuarter(quarter)">Delete Quarter</button>
         </td>
       </tr>
     </ng-container>
@@ -30,9 +30,15 @@
     </tbody>
   </table>
 
-  here should be Quarters list
   <div class="buttons-wrapper d-flex justify-content-between">
-    <!-- TODO Add Quarter Form -->
-    <button class="btn btn-primary" (click)="addQuarter()">Add Quarter</button>
+    <button class="btn btn-primary" (click)="openAddModal()">Add Quarter</button>
   </div>
 </div>
+
+
+<app-quarter-modal
+  [mode]="modalMode"
+  (closeModalEvent)="closeModal()"
+  (submitFormEvent)="submitForm($event)"
+  [hidden]="!isModalOpen">
+</app-quarter-modal>
