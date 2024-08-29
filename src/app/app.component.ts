@@ -65,7 +65,7 @@ export class AppComponent {
   private getDefaultDates() {
     const now: Date = new Date();
     const firstDayPrevMonth: Date = new Date(now.getFullYear(), now.getMonth() - 1, 2);
-    const lastDayPrevMonth: Date = new Date(now.getFullYear(), now.getMonth(), 0);
+    const lastDayPrevMonth: Date = new Date(now.getFullYear(), now.getMonth(), 1);
 
     const formatDate = (date: Date) => date.toISOString().split('T')[0];
 
